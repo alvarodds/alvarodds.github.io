@@ -84,11 +84,11 @@ function checkGuess() {
     document.getElementById('countdown').style.display = 'none';
   } else {
     const confirmMessage = confirm("¿Estás segura?");
-    if (confirmMessage) {
-      document.getElementById('message').innerHTML = "¡Mensaje de confirmación!";
-    } else {
-      document.getElementById('message').innerHTML = "¡Error de confirmación!";
-    }
+      if (confirmMessage) {
+        document.getElementById('message').innerHTML = "¡Fallaste! O por ansias o porque no lo sabes todavía ;) Intentalo de nuevo.";
+      } else {
+        document.getElementById('message').innerHTML = "¡Te lo pensaste mejor ehhhh!";
+      }
   }
 }
 
