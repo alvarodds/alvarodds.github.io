@@ -14,6 +14,10 @@
       padding: 20px;
     }
 
+    #puzzleText {
+      margin-bottom: 20px;
+    }
+
     #countdownWrapper {
       margin-bottom: 30px;
     }
@@ -49,6 +53,10 @@
 </head>
 <body>
 
+<div id="puzzleText">
+  En un sueño futuro, Vicky y Álvaro tienen un salón con una sola ventana, cuadrada y de 1m de alto por 1m de ancho. Vicky tenía un problema ocular, y la ventaja dejaba entrar mucha luz. Llamó su chansito que le ama mucho para ver si le podía ayudar y le pidió que cambiase la ventana para que sólo entrara la mitad de la luz. Pero tenía que seguir siendo cuadrada y con las mismas dimensiones de 1x1 metros. Tampoco podía usar cortinas o personas o vidrios de color, ni nada semejante. ¿Cómo pudo Álvaro solucionar el problema para que la chansita pudiera seguir siendo feliz?
+</div>
+
 <div id="countdownWrapper">
   <div id="countdown"></div>
 </div>
@@ -79,8 +87,8 @@ function updateCountdown() {
 function checkGuess() {
   const guess = document.getElementById('inputGuess').value;
 
-  if (guess === '151023151023') {
-    document.getElementById('message').innerHTML = "¡Todavía no está la sorpresa!";
+  if (guess === 'rombo' || guess === 'Rombo') {
+    document.getElementById('message').innerHTML = "¡Enhorabuena! Tu premio es pensar una letra... Pronto habrá noticias";
     document.getElementById('countdown').style.display = 'none';
   } else {
     const confirmMessage = confirm("¿Estás segura?");
