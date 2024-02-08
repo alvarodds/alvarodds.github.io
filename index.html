@@ -107,12 +107,9 @@ function checkGuess() {
   const guess = document.getElementById('inputGuess').value;
 
   if (guess === 'rombo' || guess === 'Rombo') {
-    document.getElementById('confirmationCardBody').innerHTML = '<p class="card-text">¡Enhorabuena! Tu premio es pensar una letra... Pronto habrá noticias!</p>';
-    document.getElementById('confirmationCard').classList.add('bg-success');
-    //document.getElementById('countdown').style.display = 'none';
+      showConfirmationMessage(true);
   } else {
-      const confirmMessage = confirm("¿Estás segura?");
-      showConfirmationMessage(confirmMessage);
+      showConfirmationMessage(false);
   }
 }
 
@@ -120,10 +117,10 @@ function checkGuess() {
     const confirmationCardBody = document.getElementById('confirmationCardBody');
 
     if (isCorrect) {
-      confirmationCardBody.innerHTML = '<p class="card-text">¡Fallaste! O por ansias o porque no lo sabes todavía ;) Intentalo de nuevo</p>';
+      confirmationCardBody.innerHTML = '<p class="card-text">Enhorabuena</p>';
       document.getElementById('confirmationCard').classList.add('bg-danger');
     } else {
-      confirmationCardBody.innerHTML = '<p class="card-textr">¡Te lo pensaste mejor ehhhh!</p>';
+      confirmationCardBody.innerHTML = '<p class="card-textr">¡Fallaste! O por ansias o porque no lo sabes todavía ;) Intentalo de nuevo</p>';
       document.getElementById('confirmationCard').classList.add('bg-danger');
     }
   }
