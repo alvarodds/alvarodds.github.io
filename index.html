@@ -109,7 +109,7 @@ function checkGuess() {
   if (guess === 'rombo' || guess === 'Rombo') {
     confirmationCardBody.innerHTML = '<p class="card-text">¡Enhorabuena! Tu premio es pensar una letra... Pronto habrá noticias!</p>';
     document.getElementById('confirmationCard').classList.add('bg-success');
-    document.getElementById('countdown').style.display = 'none';
+    //document.getElementById('countdown').style.display = 'none';
   } else {
       const confirmMessage = confirm("¿Estás segura?");
       showConfirmationMessage(confirmMessage);
