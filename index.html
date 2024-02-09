@@ -43,6 +43,19 @@
       width: 70%;
       margin: auto;
     } 
+    
+    #poetryCard {
+      width: 60%;
+      margin: auto;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    #poetryCardBody {
+      padding: 20px;
+      text-align: justify;
+      line-height: 1.6;
+    }
 
     @media (max-width: 600px) {
       /* Estilos adicionales para dispositivos móviles */
@@ -65,15 +78,32 @@
   <div class="pt-4" id="countdownWrapper">
     <div id="countdown"></div>
   </div>
-  <!--
-  <input type="text" id="inputGuess" class="form-control" placeholder="Ingresa el número">
-  <button onclick="checkGuess()" class="btn btn-primary">Comprobar</button>
+
+  <div class="container">
+  <div id="poetryCard" class="card">
+    <div id="poetryCardBody" class="card-body">
+      <p>En el rincón de los conceptos, soy un susurro sin final,</p>
+      <p>una esencia que se escapa, en lo grande y lo trivial.</p>
+      <p>En la trama de la existencia, soy un enigma a descifrar,</p>
+      <p>una palabra que se pierde, en el vasto caminar.</p>
+      <p>Sin límites ni confines, me desplazo con destreza,</p>
+      <p>un símbolo sin medida, en la danza de la certeza.</p>
+      <p>En el lenguaje del universo, mi nombre se esconde,</p>
+      <p>una incógnita perpetua, que en el pensamiento responde.</p>
+      <p>¿Quién soy en esta danza de letras y misterios,</p>
+      <p>una palabra que se estira, en universos enteros?</p>
+    </div>
+  </div>
+</div>
+
+  
+  <input type="text" id="inputGuess" class="form-control" placeholder="Prueba suerte">
+  <button onclick="checkGuess()" class="btn btn-primary">Enviar</button>
   
   <div id="confirmationCard" class="card mt-3" style="display: none;">
     <div class="card-body" id="confirmationCardBody">
     </div>
   </div>
-  -->
 
 </div>
 
@@ -105,7 +135,7 @@ function updateCountdown() {
 function checkGuess() {
   const guess = document.getElementById('inputGuess').value;
 
-  if (guess === 'rombo' || guess === 'Rombo') {
+  if (guess === 'infinito' || guess === 'Infinito') {
       showConfirmationMessage(true);
   } else {
       showConfirmationMessage(false);
