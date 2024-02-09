@@ -147,7 +147,7 @@ function checkGuess() {
     confirmationCard.classList.remove('bg-success', 'bg-danger');
     
     if (isCorrect) {
-      confirmationCardBody.innerHTML = '<p class="card-text">Enhorabuena</p>';
+      confirmationCardBody.innerHTML = '<p class="card-text">¡Estás en racha! ¡Felicitaciones! ¿Preparada para pensar la siguiente letra?</p>';
       document.getElementById('confirmationCard').classList.add('bg-success');
     } else {
       confirmationCardBody.innerHTML = '<p class="card-text">¡Fallaste! O por ansias o porque no lo sabes todavía ;) Intentalo de nuevo</p>';
