@@ -76,6 +76,11 @@
       line-height: 1.6;
     }
 
+    #customInput {
+      max-width: 300px; /* Ancho máximo del input */
+      margin: 0 auto; /* Centrar el input */
+    }
+
     @media (max-width: 600px) {
       /* Estilos adicionales para dispositivos móviles */
       body {
@@ -118,9 +123,10 @@
     </div>
   </div>
 
-  
-  <input type="text" id="inputGuess" class="form-control mt-1" placeholder="Prueba suerte">
-  <button onclick="checkGuess()" class="btn btn-primary">Enviar</button>
+  <div id="customInput" class="mx-auto">
+    <input type="text" id="inputGuess" class="form-control" placeholder="Prueba suerte">
+    <button onclick="checkGuess()" class="btn btn-primary">Enviar</button>
+  </div>
   
   <div id="confirmationCard" class="card mt-3" style="display: none;">
     <div class="card-body" id="confirmationCardBody">
