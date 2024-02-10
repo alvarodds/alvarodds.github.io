@@ -155,7 +155,7 @@ function updateCountdown() {
 function checkGuess() {
   const guess = document.getElementById('inputGuess').value;
 
-  if (guess === 'corazon' || guess === 'Corazon') {
+  if (guess === 'corazon' || guess === 'Corazon' || guess === 'Corazón' || guess === 'corazón') {
       showConfirmationMessage(true);
   } else {
       showConfirmationMessage(false);
