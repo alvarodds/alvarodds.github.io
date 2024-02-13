@@ -96,6 +96,10 @@
   <header class="text-center my-4">
     <img src="logo.png" alt="Logo" id="logo" class="img-fluid">
   </header>
+
+  <div class="pt-4" id="countdownWrapper">
+    <div id="countdown"></div>
+  </div>
   
   <h2>Prueba final</h2>
   <div id="wordCard" class="card">
@@ -103,19 +107,6 @@
       <p class="card-text">M O _ _ _ _ /   T _ _ _ _ A /   _ /  M A _ _ S /   C O N /   T A L /   _ _ /  _ O L _ _ _ /   A /   _ _ _ T _ </p>
     </div>
   </div>
-  
-  <div class="pt-4" id="countdownWrapper">
-    <div id="countdown"></div>
-  </div>
-
-  <div id="poetryCard" class="card my-2 pt-2">
-    <h3 class="p-2">Prueba 7: A bailar</h3>
-    <div id="poetryCardBody" class="card-body">
-        <audio controls>
-        <source src="aBailar.mp3" type="audio/mp3">
-      </audio>
-    </div>
-</div>
 
   <div id="customInput" class="mx-auto">
     <input type="text" id="inputGuess" class="form-control form-control-lg" placeholder="Prueba suerte">
@@ -168,7 +159,7 @@ setInterval(updateCountdown, 1000);
 function checkGuess() {
   const guess = document.getElementById('inputGuess').value;
 
-  if (guess === 'Buleria' || guess === 'buleria' || guess === 'Bulería' || guess === 'bulería') {
+  if (guess === 'xsdzfcsdvsdv') {
       showConfirmationMessage(true);
   } else {
       showConfirmationMessage(false);
