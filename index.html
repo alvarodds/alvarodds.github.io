@@ -96,18 +96,19 @@
   <header class="text-center my-4">
     <img src="logo.png" alt="Logo" id="logo" class="img-fluid">
   </header>
+  
+  <h2>Prueba final</h2>
+  <div id="wordCard" class="card">
+    <div class="card-body">
+      <p class="card-text">M O V E R É /   T I E R R A /  Y /  M A R E S /   C O N /   T A L /   D E /  V O L V E R /   A /   V E R T E </p>
+    </div>
+  </div>
 
   <div class="pt-4" id="countdownWrapper">
     <div id="countdown"></div>
   </div>
   
-  <h2>Prueba final</h2>
-  <div id="wordCard" class="card">
-    <div class="card-body">
-      <p class="card-text">M O _ _ _ _ /   T _ _ _ _ A /   _ /  M A _ _ S /   C O N /   T A L /   _ _ /  _ O L _ _ _ /   A /   _ _ _ T _ </p>
-    </div>
-  </div>
-
+<!--
   <div id="customInput" class=" mt-3 mx-auto">
     <input type="text" id="inputGuess" class="mt-3 form-control form-control-lg" placeholder="Prueba suerte">
     <button onclick="checkGuess()" class="btn btn-primary">Enviar</button>
@@ -117,6 +118,7 @@
     <div class="card-body" id="confirmationCardBody">
     </div>
   </div>
+  -->
 </div>
 
 <!-- Incluyendo Bootstrap JS y dependencias -->
@@ -125,7 +127,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-const targetDate = new Date('2024-02-14T22:00:00').getTime();
+const targetDate = new Date('2024-02-14T21:00:00').getTime();
 
 function updateCountdown() {
   const now = new Date().getTime();
@@ -140,11 +142,7 @@ function updateCountdown() {
     const countdownElement = document.getElementById('countdown');
     const isRed = Math.floor(now / 1000) % 2 === 0; // Cambia el color cada segundo
 
-    if (isRed) {
-      countdownElement.style.color = 'red';
-    } else {
-      countdownElement.style.color = 'black';
-    }
+    countdownElement.style.color = 'green';
 
     countdownElement.innerHTML = `<p>Tiempo restante:</p> <p>${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
   } else {
@@ -152,8 +150,6 @@ function updateCountdown() {
     document.getElementById('inputGuess').style.display = 'block';
   }
 }
-
-setInterval(updateCountdown, 1000);
 
 
 function checkGuess() {
