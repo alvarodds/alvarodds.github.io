@@ -143,8 +143,8 @@ function updateCountdown() {
     const isGreen = Math.floor(now / 1000) % 2 === 0; // Cambia el color cada segundo
 
     if(isGreen){
-      countdownElement.style.color = 'green';
       countdownElement.style.opacity = 1;
+      countdownElement.style.color = 'green';
     }
     else{
        countdownElement.style.opacity = 0;
