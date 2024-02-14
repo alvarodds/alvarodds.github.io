@@ -161,27 +161,36 @@ function updateCountdown() {
 
     countdownElement.innerHTML = `<p>Tiempo restante:</p> <p>${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
   } else {
+    // Restauramos la opacidad original
     document.getElementById('countdown').style.opacity = 1;
+
+    // Crear el contenedor de descarga
     const downloadContainer = document.createElement('div');
     downloadContainer.id = 'downloadContainer';
     downloadContainer.style.textAlign = 'center';
 
+    // Crear enlace de descarga
     const pdfLink = document.createElement('a');
     pdfLink.id = 'pdfLink';
-    pdfLink.href = 'ruta/a/tu/archivo.pdf';
-    pdfLink.download = 'sorpresa.pdf';
+    pdfLink.href = 'sorpresa.pdf';
+    pdfLink.download = 'nombre-del-archivo.pdf';
 
+    // Crear imagen
     const img = document.createElement('img');
-    img.src = 'sorpresa.png';
+    img.src = 'sorpresa.jpg';
     img.alt = 'Descargar PDF';
     img.style.width = '200px'; // Ajusta el tamaño de la imagen según tus necesidades
     img.style.cursor = 'pointer';
 
+    // Agregar imagen al enlace y enlace al contenedor
     pdfLink.appendChild(img);
     downloadContainer.appendChild(pdfLink);
+
+    // Actualizar el contenido y estilo del contador y el input
+    document.getElementById('countdown').innerHTML = "¡Tiempo terminado!";
     document.getElementById('inputGuess').style.display = 'block';
 
-    // Añade el contenedor de descarga al documento
+    // Añadir el contenedor de descarga al cuerpo del documento
     document.body.appendChild(downloadContainer);
   }
 }
