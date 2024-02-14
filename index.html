@@ -161,6 +161,7 @@ function updateCountdown() {
 
     countdownElement.innerHTML = `<p>Tiempo restante:</p> <p>${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
   } else {
+    document.getElementById('countdown').style.opacity = 1;
     const downloadContainer = document.createElement('div');
     downloadContainer.id = 'downloadContainer';
     downloadContainer.style.textAlign = 'center';
