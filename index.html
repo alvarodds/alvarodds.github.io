@@ -161,10 +161,10 @@ function updateCountdown() {
 
     countdownElement.innerHTML = `<p>Tiempo restante:</p> <p>${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
   } else {
-    // Restauramos la opacidad original
+    // Restauramos la opacidad original al finalizar el contador
     document.getElementById('countdown').style.opacity = 1;
 
-    // Crear el contenedor de descarga
+    // Creamos el contenedor de descarga
     const downloadContainer = document.createElement('div');
     downloadContainer.id = 'downloadContainer';
     downloadContainer.style.textAlign = 'center';
@@ -172,12 +172,12 @@ function updateCountdown() {
     // Crear enlace de descarga
     const pdfLink = document.createElement('a');
     pdfLink.id = 'pdfLink';
-    pdfLink.href = 'sorpresa.pdf';
+    pdfLink.href = 'ruta/a/tu/archivo.pdf';
     pdfLink.download = 'nombre-del-archivo.pdf';
 
     // Crear imagen
     const img = document.createElement('img');
-    img.src = 'sorpresa.jpg';
+    img.src = 'ruta/a/tu/imagen.jpg';
     img.alt = 'Descargar PDF';
     img.style.width = '200px'; // Ajusta el tamaño de la imagen según tus necesidades
     img.style.cursor = 'pointer';
@@ -187,7 +187,7 @@ function updateCountdown() {
     downloadContainer.appendChild(pdfLink);
 
     // Actualizar el contenido y estilo del contador y el input
-    document.getElementById('countdown').innerHTML = "¡Tiempo terminado!";
+    document.getElementById('countdown').innerHTML = "";
     document.getElementById('inputGuess').style.display = 'block';
 
     // Añadir el contenedor de descarga al cuerpo del documento
