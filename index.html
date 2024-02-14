@@ -82,6 +82,15 @@
       margin-bottom: 30px;
     }
 
+    #downloadContainer {
+      text-align: center;
+    }
+
+    #pdfLink img {
+      width: 200px; /* Ajusta el tamaño de la imagen según tus necesidades */
+      cursor: pointer;
+    }
+
     @media (max-width: 600px) {
       /* Estilos adicionales para dispositivos móviles */
       body {
@@ -152,8 +161,29 @@ function updateCountdown() {
 
     countdownElement.innerHTML = `<p>Tiempo restante:</p> <p>${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
   } else {
+    const downloadContainer = document.createElement('div');
+    downloadContainer.id = 'downloadContainer';
+    downloadContainer.style.textAlign = 'center';
+
+    const pdfLink = document.createElement('a');
+    pdfLink.id = 'pdfLink';
+    pdfLink.href = 'ruta/a/tu/archivo.pdf';
+    pdfLink.download = 'nombre-del-archivo.pdf';
+
+    const img = document.createElement('img');
+    img.src = 'ruta/a/tu/imagen.jpg';
+    img.alt = 'Descargar PDF';
+    img.style.width = '200px'; // Ajusta el tamaño de la imagen según tus necesidades
+    img.style.cursor = 'pointer';
+
+    pdfLink.appendChild(img);
+    downloadContainer.appendChild(pdfLink);
+
     document.getElementById('countdown').innerHTML = "¡Tiempo terminado!";
     document.getElementById('inputGuess').style.display = 'block';
+
+    // Añade el contenedor de descarga al documento
+    document.body.appendChild(downloadContainer);
   }
 }
   
