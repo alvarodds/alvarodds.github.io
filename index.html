@@ -142,7 +142,7 @@ function updateCountdown() {
   const now = new Date().getTime();
   const timeDifference = targetDate - now;
 
-  if (timeDifference > 0) {
+  if (timeDifference > 0 && !hasDisplayedDownload) {
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
@@ -171,14 +171,13 @@ function updateCountdown() {
 
     // Agregamos el mensaje
     const message = document.createElement('p');
-    message.textContent = 'Aqui tienes tu sorpresa:';
+    message.textContent = 'Aqui tienes tu premio:';
 
     // Crear enlace de descarga
     const pdfLink = document.createElement('a');
     pdfLink.id = 'pdfLink';
     pdfLink.href = 'sorpresa.pdf';
-    pdfLink.download = 'nombre-del-archivo.pdf';
-    pdfLink.textContent = 'Haz clic aquí para descargar';
+    pdfLink.download = 'sorpresa.pdf';
 
     // Agregamos elementos al contenedor
     downloadContainer.appendChild(message);
@@ -186,6 +185,9 @@ function updateCountdown() {
 
     // Añadir el contenedor de descarga al cuerpo del documento
     document.body.appendChild(downloadContainer);
+
+    // Marcamos que ya se ha mostrado el mensaje y enlace de descarga
+    hasDisplayedDownload = true;
   }
 }
   
