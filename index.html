@@ -140,9 +140,15 @@ function updateCountdown() {
     const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
     const countdownElement = document.getElementById('countdown');
-    const isRed = Math.floor(now / 1000) % 2 === 0; // Cambia el color cada segundo
+    const isGreen = Math.floor(now / 1000) % 2 === 0; // Cambia el color cada segundo
 
-    countdownElement.style.color = 'green';
+    if(isGreen){
+      countdownElement.style.color = 'green';
+      countdownElement.style.opacity = 1;
+    }
+    else{
+       countdownElement.style.opacity = 0;
+    }
 
     countdownElement.innerHTML = `<p>Tiempo restante:</p> <p>${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
   } else {
@@ -150,7 +156,8 @@ function updateCountdown() {
     document.getElementById('inputGuess').style.display = 'block';
   }
 }
-
+  
+setInterval(updateCountdown, 1000);
 
 function checkGuess() {
   const guess = document.getElementById('inputGuess').value;
