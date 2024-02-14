@@ -142,7 +142,7 @@ function updateCountdown() {
   const now = new Date().getTime();
   const timeDifference = targetDate - now;
 
-  if (timeDifference > 0 && hasDisplayedDownload) {
+  if (timeDifference <= 0 && !hasDisplayedDownload) {
     const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
@@ -178,6 +178,7 @@ function updateCountdown() {
     pdfLink.id = 'pdfLink';
     pdfLink.href = 'sorpresa.pdf';
     pdfLink.download = 'sorpresa.pdf';
+    pdfLink.textContent = 'Haz clic aquí para descargar';
 
     // Agregamos elementos al contenedor
     downloadContainer.appendChild(message);
