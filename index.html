@@ -1,234 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project V</title>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Regalo de aniversario</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
 
     body {
-      background-color: #FFDA33; /* Fondo amarillo */
-      color: #000; /* Texto negro */
-      font-size: 18px; /* Tamaño de fuente más grande */
+      background-color: #FFDA33;
+      color: #000;
       text-align: center;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h2{
-      font-family: 'Protest Strike', sans-serif;
-    }
-
-    h3{
-      font-family: 'Protest Strike', sans-serif;
-    }
-
-    #logo {
-      width: 300px; /* Ancho de la imagen */
-    }
-
-    #puzzleText {
-      margin-bottom: 20px;
-    }
-
-    #countdownWrapper {
-      margin-bottom: 20px;
-      font-family: 'Protest Strike', sans-serif;
-    }
-
-    #countdown {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      font-family: 'Protest Strike', sans-serif;
-    }
-
-    #inputGuess {
-      margin-bottom: 10px;
-      padding: 5px;
-      font-size: 16px;
-    }
-
-    #message {
-      margin-top: 20px;
-    }
-    
-    #wordCard {
       font-family: 'Protest Riot', sans-serif;
-      width: 70%;
-      margin: auto;
-    } 
-    
-    #poetryCard {
-      width: 100%;
-      margin: auto;
-      margin-top: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+      padding: 60px 20px;
     }
 
-    #poetryCardBody {
-      font-family: 'Protest Riot', sans-serif;
-      padding: 40px;
-      text-align: justify;
-      line-height: 1.6;
-    }
-
-    #customInput {
-      max-width: 300px; /* Ancho máximo del input */
-      margin: 0 auto; /* Centrar el input */
+    h2 {
+      font-family: 'Protest Strike', sans-serif;
       margin-bottom: 30px;
     }
 
-    #downloadContainer {
-      text-align: center;
+    #downloadLink img {
+      width: 250px;
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease-in-out;
     }
 
-    #pdfLink img {
-      width: 200px; /* Ajusta el tamaño de la imagen según tus necesidades */
-      cursor: pointer;
+    #downloadLink img:hover {
+      transform: scale(1.05);
     }
 
-    @media (max-width: 600px) {
-      /* Estilos adicionales para dispositivos móviles */
-      body {
-        font-size: 16px;
-      }
+    .btn-primary {
+      background-color: #000;
+      border: none;
+      margin-top: 15px;
+      font-family: 'Protest Strike', sans-serif;
+    }
+
+    .btn-primary:hover {
+      background-color: #333;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <header class="text-center my-4">
-    <img src="logo.png" alt="Logo" id="logo" class="img-fluid">
-  </header>
-  
-  <h2>Prueba final</h2>
-  <div id="wordCard" class="card">
-    <div class="card-body">
-      <p class="card-text">M O V E R É / T I E R R A /  Y /  M A R E S / C O N / T A L / D E /  V O L V E R / A / V E R T E </p>
-    </div>
+  <h2>Descarga tu regalo de aniversario 🎁</h2>
+
+  <div id="downloadLink" class="d-flex flex-column align-items-center">
+    <a href="regalo.jpg" download="regalo-aniversario.jpg">
+      <img src="regalo.jpg" alt="Regalo de aniversario">
+    </a>
+    <a href="regalo.jpg" download="regalo-aniversario.jpg" class="btn btn-primary mt-3">
+      Descargar imagen
+    </a>
   </div>
-
-  <div id="downloadContainer">
-  <a id="pdfLink" href="sorpresa.pdf" download>
-    <img src="sorpresa.png" alt="Descargar PDF">
-  </a>
-</div>
-  
-<!--
-  <div id="customInput" class=" mt-3 mx-auto">
-    <input type="text" id="inputGuess" class="mt-3 form-control form-control-lg" placeholder="Prueba suerte">
-    <button onclick="checkGuess()" class="btn btn-primary">Enviar</button>
-  </div>
-  
-  <div id="confirmationCard" class="card mt-3" style="display: none;">
-    <div class="card-body" id="confirmationCardBody">
-    </div>
-  </div>
-  -->
-</div>
-
-<!-- Incluyendo Bootstrap JS y dependencias -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script>
-const targetDate = new Date('2024-02-14T17:00:00').getTime();
-let hasDisplayedDownload = false;
-
-function updateCountdown() {
-  const now = new Date().getTime();
-  const timeDifference = targetDate - now;
-
-  if (timeDifference <= 0 && !hasDisplayedDownload) {
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-    const countdownElement = document.getElementById('countdown');
-    const isGreen = Math.floor(now / 1000) % 2 === 0; // Cambia el color cada segundo
-
-    if(isGreen){
-      countdownElement.style.opacity = 1;
-      countdownElement.style.color = 'green';
-    }
-    else{
-       countdownElement.style.opacity = 0;
-    }
-
-    countdownElement.innerHTML = `<p>Tiempo restante:</p> <p>${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
-  } else {
-// Ocultamos el contador y mostramos el mensaje y enlace de descarga
-    document.getElementById('countdown').style.display = 'none';
-
-    // Creamos el contenedor de descarga
-    const downloadContainer = document.createElement('div');
-    downloadContainer.id = 'downloadContainer';
-    downloadContainer.style.textAlign = 'center';
-
-    // Agregamos el mensaje
-    const message = document.createElement('p');
-    message.textContent = 'Aqui tienes tu premio:';
-
-    // Crear enlace de descarga
-    const pdfLink = document.createElement('a');
-    pdfLink.id = 'pdfLink';
-    pdfLink.href = 'sorpresa.pdf';
-    pdfLink.download = 'sorpresa.pdf';
-    pdfLink.textContent = 'Haz clic aquí para descargar';
-
-    // Agregamos elementos al contenedor
-    downloadContainer.appendChild(message);
-    downloadContainer.appendChild(pdfLink);
-
-    // Añadir el contenedor de descarga al cuerpo del documento
-    document.body.appendChild(downloadContainer);
-
-    // Marcamos que ya se ha mostrado el mensaje y enlace de descarga
-    //hasDisplayedDownload = true;
-  }
-}
-  
-setInterval(updateCountdown, 1000);
-
-function checkGuess() {
-  const guess = document.getElementById('inputGuess').value;
-
-  if (guess === 'xsdzfcsdvsdv') {
-      showConfirmationMessage(true);
-  } else {
-      showConfirmationMessage(false);
-  }
-}
-
-  function showConfirmationMessage(isCorrect) {
-    const confirmationCardBody = document.getElementById('confirmationCardBody');
-    
-    confirmationCard.classList.remove('bg-success', 'bg-danger');
-    
-    if (isCorrect) {
-      confirmationCardBody.innerHTML = '<p class="card-text">¡¡Wow!! ¡Menudo movimiento de caderas! ¡Espectacular! Agárrese fuerte que viene la sorpresa </p>';
-      document.getElementById('confirmationCard').classList.add('bg-success');
-    } else {
-      confirmationCardBody.innerHTML = '<p class="card-text">¿Qué será?</p>';
-      document.getElementById('confirmationCard').classList.add('bg-danger');
-    }
-    confirmationCard.style.display = 'block';
-  }
-
-// Actualizar el contador cada segundo
-setInterval(updateCountdown, 1000);
-
-// Actualizar el contador al cargar la página
-updateCountdown();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
 </html>
